@@ -1,0 +1,20 @@
+services:
+  postgres-before:
+    image: postgres:15.8-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+    ports:
+      - 7432:5432
+
+  postgres-after:
+    image: postgres:15.9-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+    ports:
+      - 8432:5432
